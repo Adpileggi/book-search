@@ -1,19 +1,19 @@
 const typeDefs = `
 type User {
     _id: ID
-    username: STRING
-    email: STRING
-    bookCount: INT
+    username: String
+    email: String
+    bookCount: Int
     savedBooks: [Book]
 }
 
 type Book {
-    bookId: STRING
-    authors: STRING
-    description: STRING
-    title: STRING
-    image: STRING
-    link: STRING
+    bookId: String
+    authors: String
+    description: String
+    title: String
+    image: String
+    link: String
 }
 
 type Auth {
@@ -32,3 +32,5 @@ type Mutation {
     removeBook(userId: ID!, bookId: String!):User
 }
 `;
+
+module.exports = typeDefs;
