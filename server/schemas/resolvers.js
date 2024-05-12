@@ -26,7 +26,7 @@ const resolvers = {
             }
 
             const token = signToken(user);
-            return { token, profile }
+            return { token, user }
         },
 
         addUser: async (parent, { username, email, password }) => {
