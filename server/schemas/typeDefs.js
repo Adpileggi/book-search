@@ -9,7 +9,7 @@ type User {
 
 type Book {
     bookId: ID!
-    authors: String
+    authors: [String]
     description: String
     title: String
     image: String
@@ -17,7 +17,7 @@ type Book {
 }
 
 input InputBook {
-    bookId: ID!
+    bookId: String
     authors: [String]
     description: String
     title: String

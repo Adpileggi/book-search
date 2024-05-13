@@ -37,8 +37,10 @@ const resolvers = {
         },
 
         saveBook: async (parent, { newBook }, context) => {
+            console.log(newBook)
+            console.log(context.user._id)
             if (context.user) {            
-                return await User.findByIdAndUpdate(
+                const updatedData = await User.findByIdAndUpdate(
                 { _id: context.user._id },
                 {
                     $push: { savedBooks: newBook },
@@ -48,6 +50,7 @@ const resolvers = {
                     runValidators: true
                 }
             )
+            return updatedData
         }
         },
 

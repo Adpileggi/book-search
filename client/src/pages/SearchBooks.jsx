@@ -81,7 +81,7 @@ const SearchBooks = () => {
       // const response = await saveBook(bookToSave, token);
       console.log( {...bookToSave } ) 
       const {data} = await saveBook({
-        variables: { newBook:  bookToSave },
+        variables: { newBook: {...bookToSave} },
       });
       
       console.log(data)
