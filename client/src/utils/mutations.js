@@ -43,12 +43,19 @@ mutation saveBook($newBook: InputBook!) {
 `
 
 export const REMOVE_BOOK = gql`
-mutation removeBook($userId: ID!, $bookId: String!) {
-    removeBook(userId: $userId, bookId: $bookId) {
-      _id
-      savedBooks {
-        bookId
-      }
+mutation removeBook($bookId: ID!) {
+  removeBook(bookId: $bookId) {
+    _id
+    username
+    email
+    savedBooks {
+      bookId
+      authors
+      description
+      title
+      image
+      link
     }
   }
+}
 `
