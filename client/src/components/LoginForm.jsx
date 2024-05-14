@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 
-// import { loginUser } from '../utils/API';
 import Auth from '../utils/auth';
+// import mutations and login
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
 
@@ -11,8 +11,8 @@ const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  // eslint-disable-next-line no-unused-vars
-  const [ loginUser, {error} ] = useMutation(LOGIN_USER)
+  // add login mutation
+  const [ loginUser] = useMutation(LOGIN_USER)
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -30,14 +30,10 @@ const LoginForm = () => {
     }
 
     try {
+      // new login route
       const {data} = await loginUser({
         variables: {...userFormData}
       });
-
-      console.log(data)
-      // if (!response.ok) {
-      //   throw new Error('something went wrong!');
-      // }
 
       const { token, user } = await data.login
       console.log(user);

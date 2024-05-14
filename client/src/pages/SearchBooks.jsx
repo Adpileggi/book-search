@@ -22,7 +22,7 @@ const SearchBooks = () => {
   const [searchInput, setSearchInput] = useState('');
   // create state to hold saved bookId values
   const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
-  // set up mutation??!?
+  // set up mutation
   const [saveBook] = useMutation(SAVE_BOOK);
   
 
@@ -78,13 +78,8 @@ const SearchBooks = () => {
 
     console.log(bookToSave)
     try {
-      // const response = await saveBook(bookToSave, token);
-      console.log( {...bookToSave } ) 
-      const {data} = await saveBook({
-        variables: { newBook: {...bookToSave} },
-      });
-      
-      console.log(data)
+      // new route
+      await saveBook({variables: { newBook: {...bookToSave} } });
 
       // if book successfully saves to user's account, save book id to state
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
