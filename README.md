@@ -22,7 +22,7 @@
 
   
 
-  ![screenshot](screenshot.png)
+  ![screenshot](/client/public/screenshot.png)
 
   ## Testing
 
